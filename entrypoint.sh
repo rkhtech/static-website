@@ -13,6 +13,6 @@ fi
 search1="s#INSTANCEID#$id#g"
 search2="s#LOCALIP#$ip#g"
 
-sed -i -e $search /usr/share/nginx/html/index.html
+sed -i -e $search1 -e $search2 /usr/share/nginx/html/index.html
 
 /usr/sbin/nginx -g "daemon off;"
