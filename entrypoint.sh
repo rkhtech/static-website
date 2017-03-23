@@ -1,6 +1,10 @@
 #!/bin/sh
 
-ip=$(curl http://169.254.169.254/latest/meta-data/instance-id)
+ip=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+
+if [ -z "$ip" ]; then
+	ip='&nbsp;'
+else
 
 search="s#INSTANCEID#$ip#g"
 
