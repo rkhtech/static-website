@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ip=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+#ip=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
 if [ -z "$ip" ]; then
 	ip='&nbsp;'
