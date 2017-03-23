@@ -1,12 +1,17 @@
 #!/bin/sh
 
-ip=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+id=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+ip=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 
 if [ -z "$ip" ]; then
 	ip='&nbsp;'
 fi
+if [ -z "$id" ]; then
+        id='&nbsp;'
+fi
 
-search="s#INSTANCEID#$ip#g"
+search1="s#INSTANCEID#$id#g"
+search2="s#LOCALIP#$ip#g"
 
 sed -i -e $search /usr/share/nginx/html/index.html
 
